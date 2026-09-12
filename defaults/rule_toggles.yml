@@ -22,8 +22,8 @@ ol9stig_accounts_password_pam_minclass: true
 ol9stig_accounts_password_pam_minlen: true
 ol9stig_accounts_password_pam_ocredit: true
 ol9stig_accounts_password_pam_pwquality_password_auth: true
+ol9stig_accounts_password_pam_pwquality_retry: true
 ol9stig_accounts_password_pam_pwquality_system_auth: true
-ol9stig_accounts_password_pam_retry: true
 ol9stig_accounts_password_pam_ucredit: true
 ol9stig_accounts_password_pam_unix_rounds_password_auth: true
 ol9stig_accounts_password_pam_unix_rounds_system_auth: true
@@ -41,11 +41,10 @@ ol9stig_accounts_umask_etc_csh_cshrc: true
 ol9stig_accounts_umask_etc_login_defs: true
 ol9stig_accounts_umask_etc_profile: true
 ol9stig_accounts_umask_interactive_users: true
-ol9stig_accounts_user_dot_no_world_writable_programs: true
 ol9stig_accounts_user_interactive_home_directory_defined: true
 ol9stig_accounts_user_interactive_home_directory_exists: true
+ol9stig_aide_build_database: true
 ol9stig_aide_check_audit_tools: true
-ol9stig_aide_periodic_cron_checking: true
 ol9stig_aide_scan_notification: true
 ol9stig_aide_use_fips_hashes: true
 ol9stig_aide_verify_acls: true
@@ -70,6 +69,7 @@ ol9stig_audit_rules_dac_modification_removexattr: true
 ol9stig_audit_rules_dac_modification_setxattr: true
 ol9stig_audit_rules_dac_modification_umount: true
 ol9stig_audit_rules_dac_modification_umount2: true
+ol9stig_audit_rules_etc_cron_d: true
 ol9stig_audit_rules_execution_chacl: true
 ol9stig_audit_rules_execution_chcon: true
 ol9stig_audit_rules_execution_semanage: true
@@ -125,6 +125,7 @@ ol9stig_audit_rules_usergroup_modification_gshadow: true
 ol9stig_audit_rules_usergroup_modification_opasswd: true
 ol9stig_audit_rules_usergroup_modification_passwd: true
 ol9stig_audit_rules_usergroup_modification_shadow: true
+ol9stig_audit_rules_var_spool_cron: true
 ol9stig_auditd_audispd_syslog_plugin_activated: true
 ol9stig_auditd_data_disk_error_action_stig: true
 ol9stig_auditd_data_disk_full_action_stig: true
@@ -147,7 +148,6 @@ ol9stig_chronyd_or_ntpd_set_maxpoll: true
 ol9stig_clean_components_post_updating: true
 ol9stig_configure_bind_crypto_policy: true
 ol9stig_configure_crypto_policy: true
-ol9stig_configure_kerberos_crypto_policy: true
 ol9stig_configure_libreswan_crypto_policy: true
 ol9stig_configure_usbguard_auditbackend: true
 ol9stig_coredump_disable_backtraces: true
@@ -168,10 +168,12 @@ ol9stig_dconf_gnome_screensaver_user_locks: true
 ol9stig_dir_group_ownership_library_dirs: true
 ol9stig_dir_ownership_library_dirs: true
 ol9stig_dir_permissions_library_dirs: true
-ol9stig_dir_perms_world_writable_root_owned: true
 ol9stig_dir_perms_world_writable_sticky_bits: true
 ol9stig_directory_group_ownership_var_log_audit: true
+ol9stig_directory_groupowner_sshd_config_d: true
+ol9stig_directory_owner_sshd_config_d: true
 ol9stig_directory_ownership_var_log_audit: true
+ol9stig_directory_permissions_sshd_config_d: true
 ol9stig_disable_ctrlaltdel_burstaction: true
 ol9stig_disable_ctrlaltdel_reboot: true
 ol9stig_disable_host_auth: true
@@ -179,6 +181,7 @@ ol9stig_disable_users_coredumps: true
 ol9stig_disallow_bypass_password_sudo: true
 ol9stig_enable_authselect: true
 ol9stig_enable_dracut_fips_module: true
+ol9stig_ensure_epel_repos_disabled: true
 ol9stig_ensure_gpgcheck_globally_activated: true
 ol9stig_ensure_gpgcheck_local_packages: true
 ol9stig_ensure_gpgcheck_never_disabled: true
@@ -203,6 +206,7 @@ ol9stig_file_groupowner_etc_passwd: true
 ol9stig_file_groupowner_etc_shadow: true
 ol9stig_file_groupowner_grub2_cfg: true
 ol9stig_file_groupowner_sshd_config: true
+ol9stig_file_groupowner_sshd_drop_in_config: true
 ol9stig_file_groupowner_var_log: true
 ol9stig_file_groupowner_var_log_messages: true
 ol9stig_file_groupownership_home_directories: true
@@ -224,11 +228,13 @@ ol9stig_file_owner_etc_passwd: true
 ol9stig_file_owner_etc_shadow: true
 ol9stig_file_owner_grub2_cfg: true
 ol9stig_file_owner_sshd_config: true
+ol9stig_file_owner_sshd_drop_in_config: true
 ol9stig_file_owner_var_log: true
 ol9stig_file_owner_var_log_messages: true
 ol9stig_file_ownership_binary_dirs: true
 ol9stig_file_ownership_library_dirs: true
-ol9stig_file_permission_user_init_files: true
+ol9stig_file_permission_user_init_files_root: true
+ol9stig_file_permissions_audit_configuration: true
 ol9stig_file_permissions_backup_etc_group: true
 ol9stig_file_permissions_backup_etc_gshadow: true
 ol9stig_file_permissions_backup_etc_passwd: true
@@ -241,7 +247,6 @@ ol9stig_file_permissions_cron_monthly: true
 ol9stig_file_permissions_cron_weekly: true
 ol9stig_file_permissions_crontab: true
 ol9stig_file_permissions_etc_audit_auditd: true
-ol9stig_file_permissions_etc_audit_rulesd: true
 ol9stig_file_permissions_etc_group: true
 ol9stig_file_permissions_etc_gshadow: true
 ol9stig_file_permissions_etc_passwd: true
@@ -249,6 +254,7 @@ ol9stig_file_permissions_etc_shadow: true
 ol9stig_file_permissions_home_directories: true
 ol9stig_file_permissions_library_dirs: true
 ol9stig_file_permissions_sshd_config: true
+ol9stig_file_permissions_sshd_drop_in_config: true
 ol9stig_file_permissions_sshd_private_key: true
 ol9stig_file_permissions_sshd_pub_key: true
 ol9stig_file_permissions_ungroupowned: true
@@ -280,7 +286,6 @@ ol9stig_mount_option_dev_shm_nosuid: true
 ol9stig_mount_option_home_nodev: true
 ol9stig_mount_option_home_noexec: true
 ol9stig_mount_option_home_nosuid: true
-ol9stig_mount_option_krb_sec_remote_filesystems: true
 ol9stig_mount_option_nodev_nonroot_local_partitions: true
 ol9stig_mount_option_nodev_remote_filesystems: true
 ol9stig_mount_option_nodev_removable_partitions: true
@@ -310,12 +315,12 @@ ol9stig_no_user_host_based_files: true
 ol9stig_package_aide_installed: true
 ol9stig_package_audit_installed: true
 ol9stig_package_chrony_installed: true
+ol9stig_package_cron_installed: true
 ol9stig_package_fapolicyd_installed: true
 ol9stig_package_gssproxy_removed: true
 ol9stig_package_iprutils_removed: true
 ol9stig_package_libreswan_installed: true
 ol9stig_package_policycoreutils_installed: true
-ol9stig_package_quagga_removed: true
 ol9stig_package_rsyslog_installed: true
 ol9stig_package_sendmail_removed: true
 ol9stig_package_sssd_installed: true
@@ -329,7 +334,6 @@ ol9stig_require_emergency_target_auth: true
 ol9stig_require_singleuser_auth: true
 ol9stig_root_permissions_syslibrary_files: true
 ol9stig_rootfiles_configured: true
-ol9stig_rpm_verify_crypto_policies: true
 ol9stig_rpm_verify_hashes: true
 ol9stig_rsyslog_cron_logging: true
 ol9stig_rsyslog_encrypt_offload_actionsendstreamdriverauthmode: true
@@ -350,7 +354,6 @@ ol9stig_set_password_hashing_algorithm_logindefs: true
 ol9stig_set_password_hashing_algorithm_passwordauth: true
 ol9stig_set_password_hashing_min_rounds_logindefs: true
 ol9stig_special_service_block: true
-ol9stig_sshd_disable_compression: true
 ol9stig_sshd_disable_empty_passwords: true
 ol9stig_sshd_disable_gssapi_auth: true
 ol9stig_sshd_disable_kerb_auth: true
@@ -405,9 +408,7 @@ ol9stig_sysctl_net_ipv6_conf_all_forwarding: true
 ol9stig_sysctl_net_ipv6_conf_default_accept_ra: true
 ol9stig_sysctl_net_ipv6_conf_default_accept_redirects: true
 ol9stig_sysctl_net_ipv6_conf_default_accept_source_route: true
-ol9stig_sysctl_user_max_user_namespaces: true
 ol9stig_tftp_uses_secure_mode_systemd: true
-ol9stig_use_pam_wheel_for_su: true
 ol9stig_wireless_disable_interfaces: true
 ol9stig_xwindows_remove_packages: true
 ol9stig_xwindows_runlevel_target: true
