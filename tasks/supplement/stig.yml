@@ -1,16 +1,16 @@
 ---
-# StigForge supplements for Oracle Linux 9 STIG — same RHEL-family verify gaps as rhel10_stig.
+# StigForge supplements for Oracle Linux 9 STIG - same RHEL-family verify gaps as rhel10_stig.
 
-# RHEL-09-252035 / network_configure_name_resolution — "Configure Multiple DNS Servers
+# RHEL-09-252035 / network_configure_name_resolution - "Configure Multiple DNS Servers
 # in /etc/resolv.conf". The STIG offers two branches: if nsswitch has no `dns`, resolv.conf
 # must be EMPTY; if it has `dns`, resolv.conf must carry >=2 nameservers.
 #
-# This role used to take the empty branch — it stripped `dns` from nsswitch and truncated
+# This role used to take the empty branch - it stripped `dns` from nsswitch and truncated
 # /etc/resolv.conf. The OVAL check passed and name resolution was gone. On 2026-09-20 that
 # failed five consecutive release legs across rhel-8, rhel-9 and alma-9; the alma-9 leg named
 # it outright (`Curl error (6): Could not resolve host: mirrors.almalinux.org`), which also
 # shows the long-standing `rhsm-repomd-unreachable` RCA was reading a DNS failure as a
-# subscription one — Alma uses no RHSM. It was not only a build defect: a customer's STIG AMI
+# subscription one - Alma uses no RHSM. It was not only a build defect: a customer's STIG AMI
 # would have booted with no resolver.
 #
 # The rule's own rationale forbids that reading: "A failure in name resolution could lead to
@@ -19,12 +19,12 @@
 # resolv.conf causes exactly what the rule exists to prevent.
 #
 # So: keep `dns` in nsswitch and never truncate resolv.conf here. The >=2-nameserver half is
-# deliberately NOT done at this point — writing resolv.conf mid-hardening is what broke the
+# deliberately NOT done at this point - writing resolv.conf mid-hardening is what broke the
 # build, and with NetworkManager `dns=default` (var_networkmanager_dns_mode) NM owns the file
 # and would overwrite any static write after the FIPS reboot anyway. That half is tracked
 # separately; until it lands, this rule scores as it truly is rather than being satisfied by
 # breaking the system.
-- name: Keep DNS in host resolution order (STIG name resolution — RHEL-09-252035)
+- name: Keep DNS in host resolution order (STIG name resolution - RHEL-09-252035)
   ansible.builtin.lineinfile:
     path: /etc/nsswitch.conf
     regexp: '^hosts:'
