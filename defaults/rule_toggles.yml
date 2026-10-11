@@ -49,7 +49,6 @@ ol9stig_aide_scan_notification: true
 ol9stig_aide_use_fips_hashes: true
 ol9stig_aide_verify_acls: true
 ol9stig_aide_verify_ext_attributes: true
-ol9stig_always: true
 ol9stig_audit_privileged_commands_init: true
 ol9stig_audit_privileged_commands_poweroff: true
 ol9stig_audit_privileged_commands_reboot: true
